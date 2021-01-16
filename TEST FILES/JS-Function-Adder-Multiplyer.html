@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Function</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+
+
+
+   
+
+      // FUNCTIONS
+      // ================================================================================
+
+
+
+      // Create a Function called "vowelChecker" that takes in a single argument (x).
+      // "vowelChecker" logs whether or not the input is a vowel.
+
+      function vowelChecker(x){
+        // create a variable to spesify what we looking when we run using any word we want - like a formula
+        // name of var = perimetervalue.make it lower case to be found() .look for the character on index 0 aka the first letter
+         var firstChar = x.toLowerCase().charAt(0);
+
+         if (firstChar = "a" || firstChar === "e" || firstChar === "i" || firstChar === "o" || firstChar === "u"){
+           console.log("Yes is a vowel");
+         }  else {
+           console.log("No vowels here!")
+         }
+      }
+      function vowelChecker(x) {
+
+// vowelChecker will grab the first letter (character)...
+var firstChar = x.toLowerCase().charAt(0);
+
+// Then check if that first letter is a vowel.
+if (firstChar === "a" || firstChar === "e" || firstChar === "i" || firstChar === "o" || firstChar === "u") {
+
+  // If so... it will log that.
+  console.log("OMG. The first letter is a vowel!");
+
+}
+
+else {
+
+  // If not... it will log that.
+  console.log("First letter is NOT a vowel. *sadface*");
+
+}
+}
+
+      // Call the isString function here.
+
+
+      isString("Ahmed", "Bad", "Monkey");
+      isString(2, "Way", "Street");
+
+      // Call the vowelChecker function here.
+  // Calling our vowelChecker function.
+      vowelChecker("Amazing");
+      vowelChecker("Nahh");
+
+
+     
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Speed Reader</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="welcome">Welcome to Speed Reader</h1>
+    <h2 id="countdown"></h1>
+    <h3 id="main"></h2>
+  </div>
+
+<script>
+
+
+var poem = "Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.";
+var words = poem.split(" ");
+
+var mainEl = document.getElementById("main");
+var readEl = document.getElementById("read");
+var timerEl = document.getElementById("countdown");
+var bodyEl = document.createElement("div");
+
+var i = 0;
+
+var wordsPerMillisecond = prompt("How many words per millisecond would you like to read?");
+
+function prepareRead() {
+  var timeLeft = 5;
+
+  var timeInterval = setInterval(function() {
+    timerEl.textContent = timeLeft + " seconds remaining";
+    timeLeft--;
+
+    if (timeLeft === 0) {
+      timerEl.textContent = "";
+      speedRead();
+      clearInterval(timeInterval);
+    }
+
+  }, 1000);
+}
+
+
+function speedRead() {
+  mainEl.append(bodyEl);
+
+  var poemInterval = setInterval(function() {
+    if (words[i] === undefined) {
+      clearInterval(poemInterval);
+    } else {
+      mainEl.textContent = words[i];
+      i++;
+    }
+
+  }, wordsPerMillisecond);
+}
+
+prepareRead();
+
+
+
+
+</script>
+</body>
+</html>
+  
