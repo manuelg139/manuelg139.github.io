@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Click Event</title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+  <style>
+
+body {
+  display: block;
+  margin: 0px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+p {
+  font-size: 20px;
+}
+
+.menu {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  padding-bottom: 100px;
+  bottom: 0px;
+}
+
+.toggle {
+  border-style: outset;
+  width: 400px;
+  background-color: rgba(76, 175, 80, 0.15)
+}
+
+/* Dark Mode */
+.dark {
+  background-color:#243447;
+  height: 100vh;
+  color: #bebebe
+ 
+}
+
+.dark li a {
+  color: #bebebe;
+}
+
+.dark li a:hover {
+  background-color: #111;
+}
+
+/* Light Mode */
+.light {
+  background-color: #f0ead6;
+  color: black;
+  height: 100vh;
+}
+
+.light li a {
+  color: black;
+}
+
+.light li a:hover {
+  background-color: rgb(29, 128, 210);
+}
+
+/* Styling the Switch button */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(29, 128, 210);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(29, 128, 210);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.row {
+  margin: 20px;
+  display: flex;
+}
+.col {
+  margin: 20px;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container dark">
+    <div class="menu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div class="row toggle">
+      <div class="col">
+        <p>DARK MODE</p>
+      </div>
+      <label class="switch col">
+        <input type="checkbox" id="theme-switcher">
+        <span class="slider round"></span>
+      </label>
+      <div class="col">
+        <p>LIGHT MODE</p>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Adding an Event Listener</h2>
+    </div>
+    <div class="row">
+      <div>
+        <p>We use the .addEventListener() method to set up an element to listen for a specific event</p>
+        <p id= "light-mode">When we switch the slider to "Light Mode", the background is changed to a light color.</p>
+        <p id = "dark-mode">When we switch the slider to "Dark Mode", the background is changed to a dark color.</p>
+      </div>
+      <div class="footer">
+        <ul>
+          <li><a href="#home">Terms of Use</a></li>
+          <li><a href="#gallery">Privacy Policy</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+
+  <script>
+
+    // Access toggle switch HTML element
+
+var themeSwitcher = document.querySelector("#theme-switcher"); // variable for the toggle
+var container = document.querySelector(".container"); // main div class
+
+// Set default mode to dark / Starting point like an index
+var mode = "dark";
+
+// Listen for a click event on toggle switch
+themeSwitcher.addEventListener("click", function() {
+  // If mode is dark, apply light background
+  if (mode === "dark") {
+    mode = "light";
+    container.setAttribute("class", "light");
+  }
+  // If mode is light, apply dark background 
+  else {
+    mode = "dark";
+    container.setAttribute("class", "dark");
+  }
+});
+
+
+  </script>
+</body>
+</html>
